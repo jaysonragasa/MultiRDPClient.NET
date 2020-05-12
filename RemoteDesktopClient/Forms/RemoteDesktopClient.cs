@@ -305,7 +305,8 @@ namespace MultiRemoteDesktopClient
 
         void tabMDIChild_ClosePressed(object sender, EventArgs e)
         {
-            this.ActiveMdiChild.Close();
+            if(this.ActiveMdiChild != null)
+                this.ActiveMdiChild.Close();
         }
 
         #endregion
