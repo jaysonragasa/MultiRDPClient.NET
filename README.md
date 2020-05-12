@@ -11,8 +11,21 @@ go to your toolbox and Open Choose Toolbox Items and look for Microsoft RDP Clie
   
 I'm guessing you successfully added that control in your toolbar. So I don't think I have to explain how to get that in your Form. 
   
-# Screenshot
-to follow ....
+# Screenshots
+## Main Window
+![https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/MainWindow.jpg](https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/MainWindow.jpg)
+  
+## Server Lists
+![https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/ServerLists_Icon_Views.jpg](https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/ServerLists_Icon_Views.jpg)
+  
+## Server Group 
+![https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/GroupManagerWindow.jpg](https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/GroupManagerWindow.jpg)
+  
+## Import 
+![https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/ImportWindow.jpg](https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/ImportWindow.jpg)
+
+## About Window
+![https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/AboutWindow.jpg](https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/AboutWindow.jpg)
 
 # Features
 **Command Line Parameters** - *requested by: Simon Capewell*
