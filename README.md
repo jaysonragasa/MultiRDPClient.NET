@@ -1311,8 +1311,20 @@ First release in CodePlex.coma
 # Finale
 I hope you were able to learn and I hope I was able to help you with your RDP programming and implementation. 
 
+# 3rd Party Licenses and Links
+TabStrip Control  
+[https://www.codeproject.com/Articles/14298/TabStrip-Control](https://www.codeproject.com/Articles/14298/TabStrip-Control)
+  
+Magic TabControl - VS.NET Style  
+[https://www.codeproject.com/Articles/2969/Magic-TabControl-VS-NET-Style](https://www.codeproject.com/Articles/2969/Magic-TabControl-VS-NET-Style)
+  
+TreeView with Columns  
+[https://www.codeproject.com/Articles/23746/TreeView-with-Columns](https://www.codeproject.com/Articles/23746/TreeView-with-Columns)
+    
+  
 # License
-Under GNU GPLv3 [https://choosealicense.com/licenses/gpl-3.0/](https://choosealicense.com/licenses/gpl-3.0/)
+Microsoft Public License (MS-PL)
+ [https://opensource.org/licenses/ms-pl.html](https://opensource.org/licenses/ms-pl.html)
 
 # Article
 The original article is posted in my CodeProject page here [https://www.codeproject.com/Articles/33979/Multi-RDP-Client-NET](https://www.codeproject.com/Articles/33979/Multi-RDP-Client-NET)

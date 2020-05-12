@@ -39,7 +39,7 @@ http://www.obviex.com/samples/Encryption.aspx
 
 TreeListView
 http://www.codeproject.com/KB/tree/TreeWithColumns.aspx
-- Thanks for that control! I loved it so much that's why I have to fix some of your bugs :)
+- Thanks for that control! I loved it so much
 
 Crownwood Magic Library
 http://www.codeproject.com/KB/tabs/magictabcontrol.aspx
