@@ -1,0 +1,176 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+	    <style type="text/css">
+	        body 
+	        {
+	        	font-family: Tahoma;
+	        	font-size: 12px;
+	        }
+	    </style>
+	    
+		<title>Multi Remote Desktop Client</title>
+	</head>
+	<body>
+	<h3>Features:</h3>
+	<p>
+	    <b>Command Line Parameters - <i>requested by: <a href="http://www.codeproject.com/Members/Simon-Capewell" target="_blank">Simon Capewell</a></i></b>
+	    <ul>
+	    <li><b>/sname "server name"</b><br />Can open a new client window by providing a Server Name</li>
+	    <li><b>/gname "group name"</b><br />Can open a multiple client window by specifying the Group Name</li>
+	    </ul>
+	    <b>Add, Edit, Delete Servers</b><br />
+	    Those words says all.<br />
+	    <br />
+	    <b>Server Settings Window</b><br />the Server Settings window.
+	    <br /><br />
+	    - <b>In General Tab</b>
+	    <ul>
+	    <li><b>Server Name</b><br />You can give your connection name</li>
+	    <li><b>Server</b><br />The host address or IP address</li>
+	    <li><b>Custom Port - <i>requested by: <a href="http://www.codeproject.com/Members/Simon-Capewell" target="_blank">Simon Capewell</a></i></b><br />
+	    Allowing the RDP to connect to different port.</li>
+	    <li><b>Username</b><br />Your RD server Username</li>
+	    <li><b>Password</b><br />Your RD server Password</li>
+	    <li><b>Description</b><br />Your Server description</li>
+	    <li><b>Group</b><br />You can choose the group of your Server. You can also open <b>Group Manager</b> from there</li>
+	    </ul>
+	    - <b>In Display Tab</b>
+	    <ul>
+	    <li><b>Desktop Sizes - <i>some resoutions where requested by: <a href="http://www.codeproject.com/Members/Simon-Capewell" target="_blank">Simon Capewell</a></i></b><br />
+	        <ul>
+	            <li>640 x 480</li>
+	            <li>800 x 600</li>
+	            <li>1024 x 768</li>
+	            <li>1120 x 700</li>
+	            <li>1152 x 864</li>
+	            <li>1280 x 800</li>
+	            <li>1280 x 1024</li>
+	            <li>Custom Desktop Height and Width</li>
+	            <li>Fullscreen</li>
+	        </ul>
+	    </li>
+	    <li><b>Colors</b>
+	        <ul>
+	            <li>True Color (24 bit)</li>
+	            <li>High Color (16 bit)</li>
+	            <li>High Color (15 bit)</li>
+	            <li>256 Colors</li>
+	        </ul>
+	    </li>
+	    </ul>
+	    <b>Configuration Window</b><br />
+	    - <b>In General Tab</b>
+	    <ul>
+	        <li><b>Password</b><br />Your <b>Startup Password</b></li>
+	    </ul>
+	    - <b>Display</b>
+	    <ul>
+	        <li><b>Hide when Minimize</b><br />If <b>Enabled</b>, the window hides and it self and you bring it up anytime by double clicking on notification icon in system tray.<br />
+	        If <b>Disabled</b>, the window just minimized and accessible in taskbar.
+	        </li>
+	    </ul>
+	    <br />
+	    <b>Import/Export</b>
+	    <ul>
+	    <li><b>Import from RDP file format</b><br />You can import your current RDP files<br /><i>Note: Currently, the password made by MSTSC cannot be decrypted. I Still have to work on this</i></li>
+	    <li><b>Export to RDP file format</b><br />You can export the servers in RDP file format</li>
+	    </ul>
+	    <b>Group Manager - <i>requested by: <a href="http://www.codeproject.com/Members/Simon-Capewell" target="_blank">Simon Capewell</a></i></b><br />
+	    Manages the server groups<br />
+	    <b>Database</b><br />
+	    I implemeted <b><a href="http://www.sqlite.org/" target="_blank">SQLite3</a> - <a href="http://sqlite.phxsoftware.com/" target="_blank">ADO.NET</a></b> instead of working with XML and can be very time-consuming
+	</p>
+	<h3>UI Features</h3>
+	<p>
+	    <b>Notification Icon</b><br />
+	    This icon sits on your system tray area and you can right click on it to show the context menu or double click to bring up the window when minimized or hidden.<br />
+	    The context menu items contains:
+	    <ul>
+	        <li>Servers - And under it contains the Groups and the Servers</li>
+	        <li>Disconnect All</li>
+	        <li>Configuration</li>
+	        <li>Lock</li>
+	        <li>Exit</li>
+	    </ul>
+	    <b>Lock Application</b><br />
+	    For safety purposes, a Lock feature is added to lock the current application and the Password Window will show up after locking the application.<br />
+	    <br />
+	    <b>Startup Password - <i>requested by: <a href="http://www.codeproject.com/Members/shmulyeng" target="_blank">shmulyeng</a></i></b><br />
+	    For safety purposes, a Password feature is added before opening the application.<br />
+	    After entering 3 invalid passwords, CAPTCHA verification will show up in Password Window<br />
+	    <br />
+	    <b>Server Lists Panel</b><br />
+	    You can change the views in Server Lists panel in Detailed, Tiled, and Tree<br />
+	    <ul>
+	    <li><b>Conetext Menu in Server Lists Panel - <i>requested by: <a href="http://www.codeproject.com/Members/Simon-Capewell" target="_blank">Simon Capewell</a> and 
+            <a href="http://www.codeproject.com/Members/shmulyeng" target="_blank">shmulyeng</a></i></b><br />
+	    Context Menu will popup after right clicking on the items and you can Add, Edit, Delete, and Group Connect.</li>
+	    <li><b>Collapse/Expand Server Lists Panel - <i>requested by: <a href="http://www.codeproject.com/Members/Simon-Capewell" target="_blank">Simon Capewell</a></i></b><br />
+	    You can collapse or expand the server lists panel.</li>
+	    <li><b>Groups - <i>requested by: <a href="http://www.codeproject.com/Members/Simon-Capewell" target="_blank">Simon Capewell</a></i></b><br />Servers are arranged by Groups</li>
+        <li><b>Different Views - <i>requested by: <a href="http://www.codeproject.com/Members/Simon-Capewell" target="_blank">Simon Capewell</a></i></b><br />
+            You can set the Server lists view by Detailed, Tiled, and Tree</li>
+	    </ul>
+	    <b>MDI Tabs - <i>requested by: <a href="http://www.codeproject.com/Members/shmulyeng" target="_blank">shmulyeng</a></i></b><br />Of course, Tabs can be very helpfull when selecting client windows<br />
+	    <br />
+	    <b>Disconnect All</b><br />
+	    Disconnects all connected RD clients.<br />
+	    <br />
+	    <b>Client Window</b><br />
+	    The window for RD connections.
+	    <ul>
+	        <li><b>Connect, Disconnect, and Reconnect</b><br />This Connects, Disconnects, and Reconnects the RD connection</li>
+	        <li><b>Fullscreen</b><br />Set the RD connection to Fullscreen. It can also ask you to resize the Resolution based on your Desktop Resolution</li>
+	        <li><b>Fit To Window</b><br />The RD resolution can change based on the RD client window<br />
+	            <ul>
+	                <li>Fit to Window</li>
+	                <li>Strech</li>
+	            </ul>
+	        </li>
+	        <li><b>Settings</b><br />Opens the Server Settings</li>
+	    </ul>
+	    <b>Info Popup Window</b><br />
+	    This window automatically popups when hoverd on the control showing a description 
+        of what the control can do.
+	</p>
+	<h3>Credits</h3>
+	<p>
+	I do give a lot of credits to the People who shared their Ideas, Custom Control, and Codes.<br />
+	<b>Credits can be found in my About Window</b>
+	</p>
+	<p>
+	    <h3>Future Features</h3>
+	    <ul>
+	        <li>Send Keys</li>
+	        <li>More RD settings</li>
+	        <li>RD Virtual Channel</li>
+	        <li>Support VNC connection - using <b>SharpVNC</b></li>
+	        <li>RD and VNC connection can be viewed as thumbnail on one window.</li>
+	    </ul>
+	</p>
+	<h3>Screen shots</h3>
+	<p>
+	    <table border="0" cellpadding="0" cellspacing="0">
+	        <tr>
+	            <td>1</td>
+	            <td>1</td>
+	            <td>1</td>
+	            <td>1</td>
+	        </tr>
+	        <tr>
+	            <td>1</td>
+	            <td>1</td>
+	            <td>1</td>
+	            <td>1</td>
+	        </tr>
+	        <tr>
+	            <td>1</td>
+	            <td>1</td>
+	            <td>1</td>
+	            <td>1</td>
+	        </tr>
+	    </table>
+	</p>
+	</body>
+</html>

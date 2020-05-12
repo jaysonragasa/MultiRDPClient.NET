@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestSuites", "TestSuites", "{57812010-5D0D-4B45-8615-6714E288E1C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiRemoteDesktopClient", "RemoteDesktopClient\MultiRemoteDesktopClient.csproj", "{98A7D53A-14C4-4B2C-841B-0C3AD46E84EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextboxRequiredWrapper", "TextboxRequiredWrapper\TextboxRequiredWrapper.csproj", "{747609D5-6C63-4DEC-BA1E-A518BB8C8C1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RijndaelEncryptDecrypt", "RijndaelEncryptDecrypt\RijndaelEncryptDecrypt.csproj", "{E30F1D6F-B277-4A42-9F1E-74B108FB2513}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RDPReader", "RDPReader\RDPReader.csproj", "{6D66D7E2-DF21-4EB0-8850-A8B214566B44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProtection", "DataProtection\DataProtection.csproj", "{D016458A-83FA-4A03-B79C-7A0A66C58656}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsTscAxWrapper", "MsTscAxWrapper\MsTscAxWrapper.csproj", "{8BC7615E-8138-4D3F-B376-3DBECC589E87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveInformationBox", "LiveInformationBox\LiveInformationBox.csproj", "{6502B815-231B-4FA8-9D6D-0C5849081431}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win32APIs", "Win32APIs\Win32APIs.csproj", "{0CF5C405-5ED2-4F7A-8B64-46438CB743B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{022081C2-EDAA-46E8-AFA0-7D692722FDCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTools", "CommonTools\CommonTools.csproj", "{6D83410F-1413-4671-994C-AF095C3E5937}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RDPPasswordEncryptDecrypt", "Tests\RDPPasswordEncryptDecrypt\RDPPasswordEncryptDecrypt.csproj", "{4033ADD7-A6AB-4F39-98B0-339CB99965BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98A7D53A-14C4-4B2C-841B-0C3AD46E84EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A7D53A-14C4-4B2C-841B-0C3AD46E84EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A7D53A-14C4-4B2C-841B-0C3AD46E84EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A7D53A-14C4-4B2C-841B-0C3AD46E84EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{747609D5-6C63-4DEC-BA1E-A518BB8C8C1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{747609D5-6C63-4DEC-BA1E-A518BB8C8C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{747609D5-6C63-4DEC-BA1E-A518BB8C8C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{747609D5-6C63-4DEC-BA1E-A518BB8C8C1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E30F1D6F-B277-4A42-9F1E-74B108FB2513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E30F1D6F-B277-4A42-9F1E-74B108FB2513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E30F1D6F-B277-4A42-9F1E-74B108FB2513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E30F1D6F-B277-4A42-9F1E-74B108FB2513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D66D7E2-DF21-4EB0-8850-A8B214566B44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D66D7E2-DF21-4EB0-8850-A8B214566B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D66D7E2-DF21-4EB0-8850-A8B214566B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D66D7E2-DF21-4EB0-8850-A8B214566B44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D016458A-83FA-4A03-B79C-7A0A66C58656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D016458A-83FA-4A03-B79C-7A0A66C58656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D016458A-83FA-4A03-B79C-7A0A66C58656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D016458A-83FA-4A03-B79C-7A0A66C58656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BC7615E-8138-4D3F-B376-3DBECC589E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC7615E-8138-4D3F-B376-3DBECC589E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC7615E-8138-4D3F-B376-3DBECC589E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC7615E-8138-4D3F-B376-3DBECC589E87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6502B815-231B-4FA8-9D6D-0C5849081431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6502B815-231B-4FA8-9D6D-0C5849081431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6502B815-231B-4FA8-9D6D-0C5849081431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6502B815-231B-4FA8-9D6D-0C5849081431}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF5C405-5ED2-4F7A-8B64-46438CB743B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF5C405-5ED2-4F7A-8B64-46438CB743B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF5C405-5ED2-4F7A-8B64-46438CB743B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF5C405-5ED2-4F7A-8B64-46438CB743B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{022081C2-EDAA-46E8-AFA0-7D692722FDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{022081C2-EDAA-46E8-AFA0-7D692722FDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{022081C2-EDAA-46E8-AFA0-7D692722FDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{022081C2-EDAA-46E8-AFA0-7D692722FDCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D83410F-1413-4671-994C-AF095C3E5937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D83410F-1413-4671-994C-AF095C3E5937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D83410F-1413-4671-994C-AF095C3E5937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D83410F-1413-4671-994C-AF095C3E5937}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4033ADD7-A6AB-4F39-98B0-339CB99965BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4033ADD7-A6AB-4F39-98B0-339CB99965BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4033ADD7-A6AB-4F39-98B0-339CB99965BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4033ADD7-A6AB-4F39-98B0-339CB99965BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4033ADD7-A6AB-4F39-98B0-339CB99965BD} = {57812010-5D0D-4B45-8615-6714E288E1C9}
+	EndGlobalSection
+EndGlobal

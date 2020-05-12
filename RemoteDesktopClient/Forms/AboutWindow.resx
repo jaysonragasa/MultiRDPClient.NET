@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Remote Network Technology
+http://dev.remotenetworktechnology.com/ts/rdpfile.htm
+- Thanks for sharing the knowledge about how the RDP setting keys works.
+
+Terminal Services Team Blog
+http://blogs.msdn.com/ts/archive/2008/09/02/specifying-the-ts-client-start-location-on-the-virtual-desktop.aspx
+- Thanks for "winposstr" explanation
+
+Building Secure ASP.NET Applications: Authentication, Authorization, and Secure Communication
+http://msdn.microsoft.com/en-us/library/aa302402.aspx#secnetht07_topic4
+- Thanks for the DataProtection class! works great for RDP Password.
+- Modified it a bit to support passing a description in CryptProtectData and UncryptProtectData.
+
+Remko Weijnen
+http://www.remkoweijnen.nl/blog/2007/10/18/how-rdp-passwords-are-encrypted/#comment-900
+- Thanks for the "psw" idea!
+
+Symmetric key encryption and decryption using Rijndael algorithm
+http://www.obviex.com/samples/Encryption.aspx
+- Thanks for that algorithm!
+
+NOTE:
+Modification and Implementation are all done by Me to produce the expected result.
+
+Multi Remote Desktop Client .NET
+Is licensed under: Microsoft Public License (Ms-PL)
+http://www.microsoft.com/opensource/licenses.mspx</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUWDQIeMBsEQS8aBEUUCwEqAAAAEAAAAAUAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAE8uCVSJTw/NqWES/qphEv+qYRL/qmES/4tQD9xBJgdwAgEABQAA
+        AAAAAAAAAAAAAAAAAAAAAAAAqmkcB65oGKWvaBf/sGkY/7FqGP+xahj/sWoY/7FqGP+waRj/r2kY/6tn
+        GLGrax0LAAAAAAAAAAAAAAAAAAAAALRxIKa2cR//t3If/7l3Jf/mzq//4cWg/8KHP/+4dCD/t3Mg/7dy
+        H/+2cR//tHEgtK1zKAIAAAAAAAAAALp7KlO8eif/vXwo/759Kf/BhDT//fv1///9+P/jyaf/z6Bh/79+
+        Kf++fSn/vXwo/7x6J/+6eyljAAAAAAAAAADChDHKw4Uw/8SHMv/FiDP/xok0/+/gyf///fj/3bqH/9Sq
+        cP/GiTT/xYgz/8SHMv/DhTD/woQx2b+NRQHMlkkXyY45/suQO//MkTz/zZM+/82UPv/euoX///34//Pm
+        0f/OlT//zZQ+/82TPv/MkTz/y5A7/8qOOf/Lk0Un0pxNPdCYRP/Rmkb/0pxI/9OdSf/Tnkr/1aJS//r2
+        7f/+/Pf/2q1n/9OeSv/TnUn/0pxI/9GaRv/QmET/0ZtLTdilV0TXok//16RS/9imU//Zp1X/3LFr/+PA
+        h//s17T///34/+vTqv/ZqFb/2adV/9imVP/XpFL/16JQ/9ekVlTbq2Mr3Kxb/92tXf/er1//3rBh/9+w
+        Yv/ivoP/8uTN///9+P/w38L/37Fi/96wYf/er1//3a1d/9ysW//brGI72KRaA+G0aOzjtmn/47dr/+O4
+        bf/kuW7/5Lpv/+O5cf/kw4n/5cGD/+S5bv/juG3/47dr/+O2af/htGn12adfCgAAAADitnCM5751/+i/
+        d//owHj/6MF6/+jBev/owXr/8t67//789//v1qn/6MB5/+i/d//nvnX/4rdwnAAAAAAAAAAA2adfEufA
+        fOXsx4P/7ciE/+3Jhf/tyYb/7cmG/+7Vqv/59Oz/79et/+3IhP/sx4P/6MF97duqZBsAAAAAAAAAAAAA
+        AADdrmo17MiK7vDPkP/x0JH/8dCR//HQkv/x0JL/786R//HQkf/xz5D/68eH896wbEAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAOO6eCXy2KbA9tys//TWnP/01Zz/9NWc//TVnP/x0Zf/58CBx9qpYy0AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAP335zr78t2D89ytpuvJjqbjunuE2aZePNikWgEAAAAAAAAAAAAA
+        AAAAAAAA+A+sQfAHrEHAA6xBwAGsQYABrEGAAKxBAACsQQAArEEAAKxBAACsQQAArEGAAaxBgAGsQcAD
+        rEHgB6xB+A+sQQ==
+</value>
+  </data>
+</root>

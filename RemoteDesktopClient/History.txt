@@ -1,0 +1,134 @@
+﻿Full Release - April 11, 2009
+ADD:
+- Added Hide/Show settings for Information popup window
+UPDATE:
+- Fixed Server Lists collapse bug when no MDI Child
+- Fixed LiveInfoWindow from stealing the focus.
+- Fixed database exception in Import Window.
+- Group Manager window, redesigned to fit on MRDC.NET layout.
+- Updated database schema.
+---- Groups table uid is set to auto-increment.
+
+Full Release - April 4, 2009 UPDATE:
+- Fixed error when no password is set
+- Fixed database scheme
+- MSTSC Generated password can now be decrypted! 
+- Fixed domain name, not saving 
+
+Full Release / April 3 
+UPDATE:
+- Fixed stupid RDP Control Focus issue
+
+Full Release / April 2 
+NEW: - From the requests of Simon Capewell and shmulyeng - Simon Capewell Requests: 
+--- DONE(03222009_1254)1. Allow connection to servers on a specific port using AdvancedSettings2.RDPPort 
+--- DONE(03192009_0916)2. More screen resolutions on the slider - most obviously 1152x864 and 1280x1024. 
+--- DONE(03202009_1341)3. Context menu on the list of servers. 
+--- DONE(03222009_1254)4. Options for different icon sizes for the list of servers. 
+--- DONE(03227009_0138)5. Groupings for servers - handy if you have lots of clients each of whom have multiple servers. You could launch sessions for all the items in the group. 
+--- DONE(03212009_1321)6. Auto hide or view menu option to show/hide the sidebar (similar to Visual Studio). 
+--- DONE(03192009_0200)7. Clicking Delete Server or Edit Settings when there are no servers throws an exception. 
+
+--- Here's another one that's just occurred. I use Launchy to index a directory with a load of .rdp files in it, which means I can just type Ctrl+space then a portion of the server name and launch it. To do that with this tool it'd need to: 
+--- DONE(03272009_1129)1. Be able to launch a connection from the built in server list from the command line. 
+--- DONE(03272009_1129)2. Have a command line switch to open the connection in an existing instance of the app. 
+--- DONE(03272009_1129)3. Perhaps even be able to launch connections from the command line using rdp files rather than the built in server list. 
+- shmulyeng requests: 
+--- DONE(03272009_0252)Ability to password protect the server list. 
+--- DONE(03202009_1341)Ability to right click on a connection item in the list to edit connection details. 
+--- (WILL TRY) Ability to log out of a connection rather than disconnect. 
+--- DONE(03212009_1321)One thing I like about Palantir is the tabs of open connections. 
+- and I added some 
+- CAPTCHA verfication on startup password. 
+--- When an incorrrect password is entered 3x, CAPTCH verification panel will show up.
+- SQLite3
+--- scrap XML!! :P 
+ADD: 
+UPDATE: 
+- The last release was pretty much stable so there's a small updates on the code and some bug fix. 
+
+Alpha Release - 6, & 7 / March 19, 2009 
+NEW: 
+- Application can now run in Windows Vista. 
+- Fixed AX MSRDPClient reference 
+---- Thanks to Simon Capewell (http://www.codeproject.com/script/Membership/Profiles.aspx?mid=215) 
+-------- RemoteDesktopClient.aspx?fid=1537072&df=90&mpp=25&noise=3&sort=Position&view=Quick&select=2969383#xx2969383xx 
+MARCH 21 
+- LiveInformationBox 1.0 
+--- Is a class library that pops up whenever you hover on a specified control and shows some details about what the controls can do. 
+--- The information shown on information box is an xml base. 
+--- this is better than showing some information on a status strip :P 
+- ListViewEx 
+--- hooks some control (not just common control) to disable/enable if listview has no item or when a selectio is made on listview items. 
+--- good for automating controls instead of doing tons of lines just to disable/enable different controls. 
+MARCH 25 
+- Am using SQLite3 now instead of XML! :P 
+---- it's taking too much time to maintain :P 
+ADD: 
+UPDATE: 
+MARCH 20 
+- Finally it's working on both OS, thanks to that AxImp and thanks to @unruledboy 
+MARCH 23 
+- LiveInformationBox 
+-- now supports toolbar buttons 
+- Server Lists 
+-- now collapsable 
+-- can change icon views 
+-- context menu 
+- For RDP client window 
+-- on main form, now contains tab 
+- Settings window 
+-- added more resolution 
+- ListViewEx for Server Lists 
+-- control hooks so it can be easily Enable/Disable the controls when something's changed on the listview 
+- crashes when clicking Edit Settings and Delete when no items on the Server Lists 
+-- fixes the locking issue on rdp control when lossing its focus - Settings window 
+-- Connection Port 
+MARCH 25 
+- LiveInformationBox 
+---- fixed the UI 
+---- still having some problem on window focus. 
+
+Alpha Release - 5 / March 17, 2009 
+NEW: 
+- Import / Export RDP file format 
+- Can delete selected server in "All Server List" panel. 
+- Added new About Window 
+ADD: 
+UPDATE: 
+- Fixed and Improved Fit To Window feature 
+- Fixed Saving, Importing, and Exporting password handling. 
+
+Alpha Release - 2, 3, & 4 / March 7, 2009 
+NEW: 
+- ServerList reader moved to a separate Class Library 
+---- Custom Exception Handler 
+- TextboxRequiredWrapper moved to a separate Class Library 
+MARCH 8 
+- Fixed updating settings bug! MARCH 8 - ServerSettingsWindow 
+---- added new button("Get client window size"): Set the Desktop Width and Height size base on rdp client window size. 
+MARCH 9 
+- Fixed Icon status on Server List if multiple windows are openned. 
+---- not sure why I didn't noticed that. 
+MARCH 12 
+- RDP File Reader 
+- Used to Read/Create/Update RDP Files 
+- DataProtection 
+- Used to Encrypt/Decrypt RDP Passwords and create valid RDP Passwords. 
+ADD: 
+MARCH 9 
+- Added new button on main toolbar called "Disconnect All" 
+---- which disconnects all connected rdp client. 
+UPDATED: 
+- saving a value on "dummy" attribute is now MD5 string 
+- duplicate check while creating a New or Updating a Connection Settings. 
+MARCH 8 
+- Updated xml configuration template 
+---- added UID element 
+---- dummy and uid values are now DateTime(MMddyyhhmmss) format 
+- Password is now encrypted using Rijndael Encryption/Decryption 
+MARCH 8 - Current configuration on RDP Client Window now updates - Server list now update after settings are changed on RDP Client Window MARCH 8 
+- Settings can be applied on Server Lists or in Rdp Client Window. 
+
+Alpha Release - 1 / March 6, 2009 
+First release in CodePlex.com

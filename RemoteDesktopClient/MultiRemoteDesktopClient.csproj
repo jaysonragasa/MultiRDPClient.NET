@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{98A7D53A-14C4-4B2C-841B-0C3AD46E84EF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MultiRemoteDesktopClient</RootNamespace>
+    <AssemblyName>MultiRemoteDesktopClient</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>ICO\mstscax.dll_I345e_0409.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>c2b78731</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MagicLibrary, Version=1.7.0.0, Culture=neutral, PublicKeyToken=3a6eb82f876a49bc" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MSTSCLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MsTscAxWrapper\MSTSCLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\Captcha.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Class Modules\CommandLineArgumentParser.cs" />
+    <Compile Include="Class Modules\Common Helpers\ApplicationSettings.cs" />
+    <Compile Include="Class Modules\Common Helpers\RijndaelHelper.cs" />
+    <Compile Include="Class Modules\ControlHideShow.cs" />
+    <Compile Include="Controls\NitificationContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RDThumbnail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RDThumbnail.Designer.cs">
+      <DependentUpon>RDThumbnail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConfigurationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConfigurationWindow.Designer.cs">
+      <DependentUpon>ConfigurationWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AboutWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutWindow.Designer.cs">
+      <DependentUpon>AboutWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class Modules\Common Helpers\GlobalHelper.cs" />
+    <Compile Include="Controls\ListViewControlHooks.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TreeListViewControlHooks.cs">
+    </Compile>
+    <Compile Include="Forms\ExportWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ExportWindow.Designer.cs">
+      <DependentUpon>ExportWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ImportWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ImportWindow.Designer.cs">
+      <DependentUpon>ImportWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Partial Class\RemoteDesktopClient Form\MainToolbarEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Partial Class\RemoteDesktopClient Form\Methods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Partial Class\RemoteDesktopClient Form\RDPClientWindowEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RdpClientWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RdpClientWindow.Designer.cs">
+      <DependentUpon>RdpClientWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PasswordWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PasswordWindow.Designer.cs">
+      <DependentUpon>PasswordWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GroupManagerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GroupManagerWindow.Designer.cs">
+      <DependentUpon>GroupManagerWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PopupMDIContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PopupMDIContainer.Designer.cs">
+      <DependentUpon>PopupMDIContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\RDThumbnail.resx">
+      <DependentUpon>RDThumbnail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConfigurationWindow.resx">
+      <DependentUpon>ConfigurationWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AboutWindow.resx">
+      <DependentUpon>AboutWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExportWindow.resx">
+      <DependentUpon>ExportWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ImportWindow.resx">
+      <DependentUpon>ImportWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RdpClientWindow.resx">
+      <DependentUpon>RdpClientWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PasswordWindow.resx">
+      <DependentUpon>PasswordWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GroupManagerWindow.resx">
+      <DependentUpon>GroupManagerWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PopupMDIContainer.resx">
+      <DependentUpon>PopupMDIContainer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RemoteDesktopClient.resx">
+      <DependentUpon>RemoteDesktopClient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ServerSettingsWindow.resx">
+      <DependentUpon>ServerSettingsWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashScreenWindow.resx">
+      <DependentUpon>SplashScreenWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RDThumbnailsWindow.resx">
+      <DependentUpon>RDThumbnailsWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Forms\RemoteDesktopClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RemoteDesktopClient.Designer.cs">
+      <DependentUpon>RemoteDesktopClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Partial Class\RemoteDesktopClient Form\ServerListsEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ServerSettingsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ServerSettingsWindow.Designer.cs">
+      <DependentUpon>ServerSettingsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SplashScreenWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashScreenWindow.Designer.cs">
+      <DependentUpon>SplashScreenWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RDThumbnailsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RDThumbnailsWindow.Designer.cs">
+      <DependentUpon>RDThumbnailsWindow.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ICO\stop_red_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ICO\Shutdown_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ICO\Restart_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ICO\filemgmt.dll_I00ec_0409_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ICO\mstscax.dll_I345e_0409_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Content Include="App.Data\ApplicationDatas.s3db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="ICO\ehSSO.dll_I00dc_0409_16.ico" />
+    <None Include="ICO\fit_16.ico" />
+    <None Include="ICO\logon_settings_48.ico" />
+    <None Include="ICO\imageres.dll_I006e_0409_48.ico" />
+    <None Include="ICO\color_48.ico" />
+    <None Include="ICO\color_16_48.ico" />
+    <None Include="ICO\disconnect_all_16.ico" />
+    <None Include="ICO\delRDP_16.ico" />
+    <None Include="ICO\keyboard_16.png" />
+    <None Include="ICO\export_16.ico" />
+    <None Include="ICO\import_16.ico" />
+    <None Include="ICO\about_header.jpg" />
+    <None Include="ICO\left_arrow_16.ico" />
+    <None Include="ICO\icon_view_tile.ico" />
+    <None Include="ICO\icon_view_details.ico" />
+    <None Include="ICO\icon_view_tree.ico" />
+    <None Include="ICO\config_48.png" />
+    <None Include="ICO\config_16.ico" />
+    <None Include="ICO\manage_groups_48.png" />
+    <None Include="ICO\manage_groups_16.png" />
+    <None Include="ICO\LogOff_16.png" />
+    <Content Include="History.txt" />
+    <None Include="ICO\add_groupp_16.png" />
+    <None Include="ICO\delete_16.png" />
+    <Content Include="ICO\mstscax.dll_I345e_0409.ico" />
+    <None Include="ICO\open_16.ico" />
+    <None Include="ICO\pin_out.ico" />
+    <None Include="Resources\pin_in.ico" />
+    <None Include="ICO\pin_in.ico" />
+    <None Include="ICO\password_48.png" />
+    <None Include="ICO\Refresh.png" />
+    <None Include="ICO\splashscreen.jpg" />
+    <None Include="ICO\SplashScreen.png" />
+    <None Include="ICO\pop_in_16.ico" />
+    <None Include="ICO\pop_out_16.ico" />
+    <None Include="ICO\rename_16.png" />
+    <None Include="ICO\mstscax.dll_I345e_0409_16_greyscale.png" />
+    <Content Include="MagicLibrary.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MultiRemoteDesktopClient.htm" />
+    <Content Include="suggestions.txt" />
+    <Content Include="XMLInfoFile.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="ICO\mstscax.dll_I345e_0409_16_48a.ico" />
+    <None Include="ICO\mstscax.dll_I345e_0409_256.png" />
+    <None Include="ICO\mstscax.dll_I345e_0409_16_48_8bit.png" />
+    <None Include="ICO\RDP_Blank_header.jpg" />
+    <None Include="ICO\sysmon_16.png" />
+    <None Include="ICO\newRDP_16.ico" />
+    <None Include="ICO\RDC_Header.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonTools\CommonTools.csproj">
+      <Project>{6D83410F-1413-4671-994C-AF095C3E5937}</Project>
+      <Name>CommonTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Database\Database.csproj">
+      <Project>{022081C2-EDAA-46E8-AFA0-7D692722FDCF}</Project>
+      <Name>Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataProtection\DataProtection.csproj">
+      <Project>{D016458A-83FA-4A03-B79C-7A0A66C58656}</Project>
+      <Name>DataProtection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LiveInformationBox\LiveInformationBox.csproj">
+      <Project>{6502B815-231B-4FA8-9D6D-0C5849081431}</Project>
+      <Name>LiveInformationBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MsTscAxWrapper\MsTscAxWrapper.csproj">
+      <Project>{8BC7615E-8138-4D3F-B376-3DBECC589E87}</Project>
+      <Name>MsTscAxWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RDPReader\RDPReader.csproj">
+      <Project>{6D66D7E2-DF21-4EB0-8850-A8B214566B44}</Project>
+      <Name>RDPReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RijndaelEncryptDecrypt\RijndaelEncryptDecrypt.csproj">
+      <Project>{E30F1D6F-B277-4A42-9F1E-74B108FB2513}</Project>
+      <Name>RijndaelEncryptDecrypt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextboxRequiredWrapper\TextboxRequiredWrapper.csproj">
+      <Project>{747609D5-6C63-4DEC-BA1E-A518BB8C8C1D}</Project>
+      <Name>TextboxRequiredWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Win32APIs\Win32APIs.csproj">
+      <Project>{0CF5C405-5ED2-4F7A-8B64-46438CB743B3}</Project>
+      <Name>Win32APIs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,24 @@
+﻿From: Simon Capewell
+DONE(03222009_1254)1. Allow connection to servers on a specific port using AdvancedSettings2.RDPPort
+DONE(03192009_0916)2. More screen resolutions on the slider - most obviously 1152x864 and 1280x1024.
+DONE(03202009_1341)3. Context menu on the list of servers.
+DONE(03222009_1254)4. Options for different icon sizes for the list of servers.
+DONE(03227009_0138)5. Groupings for servers - handy if you have lots of clients each of whom have multiple servers. You could launch sessions for all the items in the group.
+DONE(03212009_1321)6. Auto hide or view menu option to show/hide the sidebar (similar to Visual Studio).
+DONE(03192009_0200)7. Clicking Delete Server or Edit Settings when there are no servers throws an exception.
+
+Here's another one that's just occurred. I use Launchy to index a directory with a load of .rdp files in it, which means I can just type Ctrl+space then a portion of the server name and launch it. To do that with this tool it'd need to:
+DONE(03272009_1129)1. Be able to launch a connection from the built in server list from the command line.
+DONE(03272009_1129)2. Have a command line switch to open the connection in an existing instance of the app.
+DONE(03272009_1129)3. Perhaps even be able to launch connections from the command line using rdp files rather than the built in server list.
+
+From: shmulyeng
+Thanks for an extremely usefull project.
+
+Some suggestions:
+DONE(03272009_0252)Ability to password protect the server list.
+DONE(03202009_1341)Ability to right click on a connection item in the list to edit connection details.
+Ability to log out of a connection rather than disconnect.
+DONE(03212009_1321)One thing I like about Palantir is the tabs of open connections.
+
+Hopefully I will have some time over the weekend to work on some of these and send the code.

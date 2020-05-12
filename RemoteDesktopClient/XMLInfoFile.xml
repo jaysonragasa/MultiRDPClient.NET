@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ControlInformations>
+  <control name="lvServerLists">
+    <title>Server Lists</title>
+    <short_description>Lists of all servers</short_description>
+    <infos>1. Double click to Connect to server
+    
+2. You can double click to activate the RDP Client window</infos>
+  </control>
+
+  <control name="tlvServerLists">
+    <title>Server Lists</title>
+    <short_description>Lists of all servers</short_description>
+    <infos>1. Double click to Connect to server
+
+2. You can double click to activate the RDP Client window</infos>
+  </control>
+  
+  <control name="btnFitToScreen">
+    <title>Fit To Screen</title>
+    <short_description></short_description>
+    <infos>Set the remote desktop resolution based on the
+remote desktop client window.</infos>
+  </control>
+  
+  <control name="tabMDIChild">
+    <title>Client Window Tabs</title>
+    <short_description>List of all openned client window</short_description>
+    <infos>1. Right click to show the context menu.
+    
+2. Double click to Activate or Restore the minimize client window.
+    </infos>
+  </control>
+</ControlInformations>
