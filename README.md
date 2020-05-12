@@ -2,7 +2,7 @@
 Multi RDP Client .NET (formerly known as Multi Remote Desktop Client .NET) comes on handy when managing your RDP connections. A simple and friendly user interface for you to work and navigate easily through tabbed RDP remote window. Allows you to Import/Export .RDP files, Disconnect all connection at one click and Connect all your servers at one click as well. You can also change the resolution while working, set the window into fullscreen mode, and as well as enable window stretching and a lot more features! 
   
 # Background
-Thanks to AxInterop.MSTSCLib (mstscax.dll) an ActiveX COM Component which you can use to connect on  Remote Desktop. So, I made a GUI for it for you to connect on your servers via terminal service on multiple window view in one application. How to use MSTSCAX.DLL? 
+Thanks to **AxInterop.MSTSCLib (mstscax.dll)** an ActiveX COM Component which you can use to connect on  Remote Desktop. So, I made a GUI for it for you to connect on your servers via terminal service on multiple window view in one application. How to use MSTSCAX.DLL? 
   
 1. You must have the ActiveX file in your system called "mstscax.dll".
 2. if not, then you can Google for the file and download it, then make sure you registered it using "RegSvr32 ". I think that's one of the IIS package if you installed the Remote Desktop Web Connection.
