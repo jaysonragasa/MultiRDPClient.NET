@@ -5,6 +5,7 @@
 Multi RDP Client .NET (formerly known as Multi Remote Desktop Client .NET) comes on handy when managing your RDP connections. A simple and friendly user interface for you to work and navigate easily through tabbed RDP remote window. Allows you to Import/Export .RDP files, Disconnect all connection at one click and Connect all your servers at one click as well. You can also change the resolution while working, set the window into fullscreen mode, and as well as enable window stretching and a lot more features! 
   
 # Background
+[up](#contents)  
 Thanks to **AxInterop.MSTSCLib (mstscax.dll)** an ActiveX COM Component which you can use to connect on  Remote Desktop. So, I made a GUI for it for you to connect on your servers via terminal service on multiple window view in one application. How to use MSTSCAX.DLL? 
   
 1. You must have the ActiveX file in your system called "mstscax.dll".
@@ -15,6 +16,7 @@ go to your toolbox and Open Choose Toolbox Items and look for Microsoft RDP Clie
 I'm guessing you successfully added that control in your toolbar. So I don't think I have to explain how to get that in your Form. 
   
 # Screenshots
+[up](#contents)  
 ## Main Window
 ![https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/MainWindow.jpg](https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/MainWindow.jpg)
   
@@ -31,6 +33,7 @@ I'm guessing you successfully added that control in your toolbar. So I don't thi
 ![https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/AboutWindow.jpg](https://raw.githubusercontent.com/jaysonragasa/MultiRDPClient.NET/master/Multi%20Remote%20Desktop%20Client%20.NET%20(ScreenShots)/AboutWindow.jpg)
 
 # Features
+[up](#contents)  
 **Command Line Parameters** - *requested by: Simon Capewell*
 * /sname "server name"
 Can open a new client window by providing a Server Name
@@ -144,6 +147,7 @@ I do give a lot of credits to the people who shared their Ideas, Custom Control,
 Credits can be found in my About Window
   
 # Code Snippets
+[up](#contents)  
 A simple example on RDP connection to connect to a remote desktop.  
 ```csharp
 // for example, I have my AxMsRdpClient control named rdpClient.
@@ -1161,6 +1165,7 @@ rdp.Update();
 ```
   
 # Release History
+[up](#contents)  
 ```text
 June 24, 2015
 UPDATE:
