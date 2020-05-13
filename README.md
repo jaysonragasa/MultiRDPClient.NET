@@ -1,3 +1,6 @@
+# Contents
+[Introduction](#Multi-RDP-Client-.NET) . [Background](#background) . [Screen Shots](#screenshots) . [Features](#features) . [Codes](#code-snippets) . [Release History](#release-history) 
+
 # Multi RDP Client .NET
 Multi RDP Client .NET (formerly known as Multi Remote Desktop Client .NET) comes on handy when managing your RDP connections. A simple and friendly user interface for you to work and navigate easily through tabbed RDP remote window. Allows you to Import/Export .RDP files, Disconnect all connection at one click and Connect all your servers at one click as well. You can also change the resolution while working, set the window into fullscreen mode, and as well as enable window stretching and a lot more features! 
   
