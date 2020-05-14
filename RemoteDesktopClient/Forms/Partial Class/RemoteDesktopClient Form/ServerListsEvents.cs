@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
+﻿using Database.Models;
+using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace MultiRemoteDesktopClient
 {
@@ -65,7 +64,7 @@ namespace MultiRemoteDesktopClient
 
             if (lvhi.Item != null)
             {
-                Database.ServerDetails sd = (Database.ServerDetails)lvhi.Item.Tag;
+                Model_ServerDetails sd = (Model_ServerDetails)lvhi.Item.Tag;
 
                 status_TextStatus.Text = sd.ServerName + " - " + sd.Server;
 
@@ -122,7 +121,7 @@ namespace MultiRemoteDesktopClient
             {
                 if (!thisSelectedNode.Key.Contains("gid")) // we don't need parent node / group
                 {
-                    Database.ServerDetails sd = (Database.ServerDetails)thisSelectedNode.Tag;
+                    Model_ServerDetails sd = (Model_ServerDetails)thisSelectedNode.Tag;
                     status_TextStatus.Text = sd.ServerName + " - " + sd.Server;
                     this.tlvch.EnableControls(true);
 

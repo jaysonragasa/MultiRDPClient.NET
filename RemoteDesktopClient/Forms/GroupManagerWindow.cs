@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Database.Models;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using TextboxRequiredWrappers;
 
@@ -81,7 +77,7 @@ namespace MultiRemoteDesktopClient
                 if (dr == DialogResult.Yes)
                 {
                     GlobalHelper.dbServers.Read();
-                    foreach (Database.ServerDetails sd in GlobalHelper.dbServers.ArrayListServers)
+                    foreach (Model_ServerDetails sd in GlobalHelper.dbServers.ArrayListServers)
                     {
                         if (groupid == sd.GroupID)
                         {

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-
+﻿using Database.Models;
 using RDPFileReader;
-using DataProtection;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace MultiRemoteDesktopClient
 {
@@ -64,7 +59,7 @@ namespace MultiRemoteDesktopClient
                 }
                 #endregion
 
-                Database.ServerDetails sd = new Database.ServerDetails();
+                Model_ServerDetails sd = new Model_ServerDetails();
                 sd.UID = DateTime.Now.Ticks.ToString();
                 sd.GroupID = 1;
                 sd.ServerName = System.IO.Path.GetFileNameWithoutExtension(thisFile);
@@ -139,7 +134,7 @@ namespace MultiRemoteDesktopClient
             {
                 thisItem.SubItems[1].Text = "Importing...";
 
-                Database.ServerDetails sd = (Database.ServerDetails)thisItem.Tag;
+                Model_ServerDetails sd = (Model_ServerDetails)thisItem.Tag;
 
                 try
                 {

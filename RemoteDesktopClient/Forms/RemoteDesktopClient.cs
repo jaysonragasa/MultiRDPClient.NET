@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database.Models;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -222,7 +223,7 @@ namespace MultiRemoteDesktopClient
         }
 
         // check RemoteDesktopClient_Shown(object sender, EventArgs e)
-        void ncm_OnServer_Clicked(object sender, EventArgs e, Database.ServerDetails server_details)
+        void ncm_OnServer_Clicked(object sender, EventArgs e, Model_ServerDetails server_details)
         {
             ListViewItem thisItem = lvServerLists.FindItemWithText(server_details.ServerName, false, 0);
             if (thisItem != null)

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Database.Models;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using TextboxRequiredWrappers;
 
 namespace MultiRemoteDesktopClient
 {
-    public delegate void ApplySettings(object sender, Database.ServerDetails sd);
+    public delegate void ApplySettings(object sender, Model_ServerDetails sd);
     public delegate Rectangle GetClientWindowSize();
 
     public partial class ServerSettingsWindow : Form
@@ -14,7 +15,7 @@ namespace MultiRemoteDesktopClient
         public event GetClientWindowSize GetClientWindowSize;
 
         TextboxRequiredWrapper trw = new TextboxRequiredWrapper();
-        Database.ServerDetails oldSD;
+        Model_ServerDetails oldSD;
 
         private bool isUpdating = false;
 
@@ -25,7 +26,7 @@ namespace MultiRemoteDesktopClient
             InitializeControlEvents();
         }
 
-        public ServerSettingsWindow(Database.ServerDetails sd)
+        public ServerSettingsWindow(Model_ServerDetails sd)
         {
             InitializeComponent();
             InitializeControls(sd);
@@ -55,7 +56,7 @@ namespace MultiRemoteDesktopClient
             GlobalHelper.PopulateGroupsDropDown(ddGroup, string.Empty);
         }
 
-        public void InitializeControls(Database.ServerDetails sd)
+        public void InitializeControls(Model_ServerDetails sd)
         {
             this.oldSD = sd;
 
@@ -172,7 +173,7 @@ namespace MultiRemoteDesktopClient
                 return;
             }
 
-            Database.ServerDetails sd = new Database.ServerDetails();
+            Model_ServerDetails sd = new Model_ServerDetails();
             sd.GroupID = GlobalHelper.dbGroups.GetIDByGroupName(ddGroup.Text);
             sd.ServerName = txServername.Text;
             sd.Server = txComputer.Text;
@@ -312,7 +313,7 @@ namespace MultiRemoteDesktopClient
             }
         }
 
-        public Database.ServerDetails CurrentServerSettings()
+        public Model_ServerDetails CurrentServerSettings()
         {
             return oldSD;
         }

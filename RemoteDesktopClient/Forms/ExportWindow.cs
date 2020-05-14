@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-
-using RDPFileReader;
+﻿using Database.Models;
 using DataProtection;
+using RDPFileReader;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace MultiRemoteDesktopClient
 {
@@ -66,7 +62,7 @@ namespace MultiRemoteDesktopClient
                     {
                         thisItem.SubItems[1].Text = "Importing...";
 
-                        Database.ServerDetails sd = (Database.ServerDetails)thisItem.Tag;
+                        Model_ServerDetails sd = (Model_ServerDetails)thisItem.Tag;
 
                         RDPFile rdp = new RDPFile();
                         rdp.ScreenMode = 1;

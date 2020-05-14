@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Database.Models;
 using System.Windows.Forms;
 
 namespace MultiRemoteDesktopClient
@@ -17,7 +15,7 @@ namespace MultiRemoteDesktopClient
 
             GlobalHelper.dbServers.Read();
 
-            foreach (Database.ServerDetails sd in GlobalHelper.dbServers.ArrayListServers)
+            foreach (Model_ServerDetails sd in GlobalHelper.dbServers.ArrayListServers)
             {
                 // add items to ListView
                 ListViewItem item = new ListViewItem(sd.ServerName);
@@ -154,7 +152,7 @@ namespace MultiRemoteDesktopClient
 
             lock (x)
             {
-                Database.ServerDetails sd = (Database.ServerDetails)lvServerLists.Items[this._selIndex].Tag;
+                Model_ServerDetails sd = (Model_ServerDetails)lvServerLists.Items[this._selIndex].Tag;
 
                 bool canCreateNewForm = true;
                 string formTitlePattern = "Remote Desktop Client - {0}@{1}[{2}]";

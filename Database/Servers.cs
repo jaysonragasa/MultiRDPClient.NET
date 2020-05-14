@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -41,7 +42,7 @@ namespace Database
             {
                 while (reader.Read())
                 {
-                    ServerDetails sd = new ServerDetails();
+                    Model_ServerDetails sd = new Model_ServerDetails();
                     sd.UID = reader["uid"].ToString();
                     sd.GroupID = int.Parse(reader["groupid"].ToString());
                     sd.ServerName = reader["servername"].ToString();
@@ -74,7 +75,7 @@ namespace Database
             CloseConnection();
         }
 
-        public void Save(bool isNew, ServerDetails server_details)
+        public void Save(bool isNew, Model_ServerDetails server_details)
         {
             if (isNew)
             {
@@ -86,7 +87,7 @@ namespace Database
             }
         }
 
-        private void Save(ServerDetails server_details)
+        private void Save(Model_ServerDetails server_details)
         {
             #region sql
             string sql = "INSERT INTO Servers(uid, groupid, servername, server, domain, port, username, password, description, colordepth, desktopwidth, desktopheight, fullscreen) ";
@@ -136,7 +137,7 @@ namespace Database
             CloseConnection();
         }
 
-        private void Update(ServerDetails server_details)
+        private void Update(Model_ServerDetails server_details)
         {
             #region sql
             string sql = @"
@@ -245,197 +246,6 @@ WHERE
                 CloseConnection();
                 System.Diagnostics.Debug.WriteLine(result);
                 throw new Exception(result);
-            }
-        }
-    }
-
-    public class ServerDetails
-    {
-        string _uid = string.Empty;
-        string _serverName = string.Empty;
-        string _server = string.Empty;
-        string _domain = string.Empty;
-        int _port = 0;
-        string _username = string.Empty;
-        string _password = string.Empty;
-        string _description = string.Empty;
-
-        int _colorDepth = 0;
-        int _desktopWidth = 0;
-        int _desktopHeight = 0;
-        bool _fullScreen = false;
-
-        int _groupID = 0;
-
-        public ServerDetails()
-        {
-        }
-
-        public string UID
-        {
-            set
-            {
-                this._uid = value;
-            }
-            get
-            {
-                return this._uid;
-            }
-        }
-
-        public string ServerName
-        {
-            set
-            {
-                this._serverName = value;
-            }
-            get
-            {
-                return this._serverName;
-            }
-        }
-
-        public string Server
-        {
-            set
-            {
-                this._server = value;
-            }
-            get
-            {
-                return this._server;
-            }
-        }
-
-        public string Domain
-        {
-            set
-            {
-                this._domain = value;
-            }
-            get
-            {
-                return this._domain;
-            }
-        }
-
-        public int Port
-        {
-            set
-            {
-                this._port = value;
-            }
-            get
-            {
-                return this._port;
-            }
-        }
-
-        public string Username
-        {
-            set
-            {
-                this._username = value;
-            }
-            get
-            {
-                return this._username;
-            }
-        }
-
-        public string Password
-        {
-            set
-            {
-                string val = value;
-
-                if (val != string.Empty)
-                {
-                    //val = RijndaelSettings.Encrypt(val);
-                }
-
-                this._password = val;
-            }
-            get
-            {
-                if (this._password != string.Empty)
-                {
-                    //this._password = RijndaelSettings.Decrypt(this._password);
-                }
-
-                return this._password;
-            }
-        }
-
-        public string Description
-        {
-            set
-            {
-                this._description = value;
-            }
-            get
-            {
-                return this._description;
-            }
-        }
-
-        public int ColorDepth
-        {
-            set
-            {
-                this._colorDepth = value;
-            }
-            get
-            {
-                return this._colorDepth;
-            }
-        }
-
-        public int DesktopWidth
-        {
-            set
-            {
-                this._desktopWidth = value;
-            }
-            get
-            {
-                return this._desktopWidth;
-            }
-        }
-
-        public int DesktopHeight
-        {
-            set
-            {
-                this._desktopHeight = value;
-            }
-            get
-            {
-                return this._desktopHeight;
-            }
-        }
-
-        public bool Fullscreen
-        {
-            set
-            {
-                this._fullScreen = value;
-            }
-            get
-            {
-                return this._fullScreen;
-            }
-        }
-
-        public int GroupID
-        {
-            set
-            {
-                this._groupID = value;
-            }
-            get
-            {
-                return this._groupID;
             }
         }
     }

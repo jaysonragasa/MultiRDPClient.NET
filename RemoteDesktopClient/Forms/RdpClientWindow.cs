@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Database.Models;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using AxMSTSCLib;
 using Win32APIs;
 
 namespace MultiRemoteDesktopClient
@@ -19,7 +13,7 @@ namespace MultiRemoteDesktopClient
     public delegate void OnFormClosing(object sender, FormClosingEventArgs e, int ListIndex, IntPtr Handle);
     public delegate void OnFormActivated(object sender, EventArgs e, int ListIndex, IntPtr Handle);
     public delegate void OnFormShown(object sender, EventArgs e, int ListIndex, IntPtr Handle);
-    public delegate void ServerSettingsChanged(object sender, Database.ServerDetails sd, int ListIndex);
+    public delegate void ServerSettingsChanged(object sender, Model_ServerDetails sd, int ListIndex);
 
     public partial class RdpClientWindow : Form
     {
@@ -32,14 +26,14 @@ namespace MultiRemoteDesktopClient
         public event OnFormShown OnFormShown;
         public event ServerSettingsChanged ServerSettingsChanged;
 
-        public Database.ServerDetails _sd;
+        public Model_ServerDetails _sd;
 
         // used to easly locate in Server lists (RemoteDesktopClient)
         private int _listIndex = 0;
 
         private bool _isFitToWindow = false;
 
-        public RdpClientWindow(Database.ServerDetails sd, Form parent)
+        public RdpClientWindow(Model_ServerDetails sd, Form parent)
         {
             InitializeComponent();
             InitializeControl(sd);
@@ -49,7 +43,7 @@ namespace MultiRemoteDesktopClient
             this.Visible = true;
         }
 
-        public void InitializeControl(Database.ServerDetails sd)
+        public void InitializeControl(Model_ServerDetails sd)
         {
             GlobalHelper.infoWin.AddControl(new object[] {
                 btnFitToScreen
@@ -247,7 +241,7 @@ namespace MultiRemoteDesktopClient
             return rdpClient.RectangleToScreen(rdpClient.ClientRectangle);
         }
 
-        void ssw_ApplySettings(object sender, Database.ServerDetails sd)
+        void ssw_ApplySettings(object sender, Model_ServerDetails sd)
         {
             this._sd = sd;
 
