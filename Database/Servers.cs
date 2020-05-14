@@ -1,10 +1,7 @@
 ﻿using Database.Models;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.SQLite;
-using System.Text;
 
 namespace Database
 {

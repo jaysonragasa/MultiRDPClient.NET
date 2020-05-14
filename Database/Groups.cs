@@ -1,59 +1,10 @@
-﻿using System;
+﻿using Database.Models;
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.SQLite;
-using System.Text;
 
 namespace Database
 {
-    public class GroupDetails
-    {
-        int _groupID = 0;
-        string _group_name = string.Empty;
-        int _serverCount = 0;
-
-        public GroupDetails()
-        {
-        }
-
-        public int GroupID
-        {
-            set
-            {
-                this._groupID = value;
-            }
-            get
-            {
-                return this._groupID;
-            }
-        }
-
-        public string GroupName
-        {
-            set
-            {
-                this._group_name = value;
-            }
-            get
-            {
-                return this._group_name;
-            }
-        }
-
-        public int ServerCount
-        {
-            set
-            {
-                this._serverCount = value;
-            }
-            get
-            {
-                return this._serverCount;
-            }
-        }
-    }
-
     public class Groups : Database
     {
         ArrayList _alGroups = new ArrayList();
@@ -83,7 +34,7 @@ namespace Database
             {
                 while (reader.Read())
                 {
-                    GroupDetails gd = new GroupDetails();
+                    Model_GroupDetails gd = new Model_GroupDetails();
                     gd.GroupID = int.Parse(reader["groupid"].ToString());
                     gd.GroupName = reader["group_name"].ToString();
 
@@ -100,7 +51,7 @@ namespace Database
             CloseConnection();
         }
 
-        public void Save(bool isNew, GroupDetails group_details)
+        public void Save(bool isNew, Model_GroupDetails group_details)
         {
             if (isNew)
             {
@@ -112,7 +63,7 @@ namespace Database
             }
         }
 
-        private void Save(GroupDetails group_details)
+        private void Save(Model_GroupDetails group_details)
         {
             string sql = "INSERT INTO Groups(groupid, group_name) VALUES((select count(Groups.groupid) from groups) + 1, @gname);";
             SQLiteParameter[] parameters = {
@@ -142,7 +93,7 @@ namespace Database
             CloseConnection();
         }
 
-        private void Update(GroupDetails group_details)
+        private void Update(Model_GroupDetails group_details)
         {
             string sql = "UPDATE Groups SET groupid = @gid, group_name = @gname WHERE groupid = @gid";
             SQLiteParameter[] parameters = {
@@ -264,7 +215,7 @@ namespace Database
 
                 while (reader.Read())
                 {
-                    GroupDetails gd = new GroupDetails();
+                    Model_GroupDetails gd = new Model_GroupDetails();
                     gd.GroupID = int.Parse(reader["groupid"].ToString());
                     gd.GroupName = reader["group_name"].ToString();
                     gd.ServerCount = int.Parse(reader["ServerCount"].ToString());

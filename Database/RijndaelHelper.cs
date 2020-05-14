@@ -1,8 +1,6 @@
-﻿using System;
-using System.Text;
-using RijndaelEncryptDecrypt;
+﻿using RijndaelEncryptDecrypt;
 
-    public class RijndaelSettings
+public class RijndaelSettings
     {
         public static string PassPhrase = "4e7046087d6e8eefe1b41bddf8bde56c";
         public static string SaltValue = "36ec281f88fb483b5726ccfc81bae6d9";

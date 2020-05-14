@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using Database;
+using Database.Models;
 using System.Windows.Forms;
-using Database;
 
 namespace MultiRemoteDesktopClient
 {
@@ -65,7 +62,7 @@ namespace MultiRemoteDesktopClient
 
             dbGroups.Read();
 
-            foreach (Database.GroupDetails gd in dbGroups.ArrayListGroups)
+            foreach (Model_GroupDetails gd in dbGroups.ArrayListGroups)
             {
                 cb.Items.Add(gd.GroupName);
             }

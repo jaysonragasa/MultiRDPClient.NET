@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Database.cs" />
     <Compile Include="Groups.cs" />
+    <Compile Include="Models\Model_GroupDetails.cs" />
     <Compile Include="Models\Model_ServerDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RijndaelHelper.cs" />

@@ -46,7 +46,7 @@ namespace MultiRemoteDesktopClient
         {
             GlobalHelper.dbGroups.Read();
             
-            foreach (Database.GroupDetails gd in GlobalHelper.dbGroups.ArrayListGroups)
+            foreach (Model_GroupDetails gd in GlobalHelper.dbGroups.ArrayListGroups)
             {
                 // add groups to ListView
                 ListViewGroup lvg = new ListViewGroup("gid" + gd.GroupID.ToString(), gd.GroupName);

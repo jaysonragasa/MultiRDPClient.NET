@@ -1,8 +1,6 @@
 ﻿using Database.Models;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MultiRemoteDesktopClient
@@ -35,7 +33,7 @@ namespace MultiRemoteDesktopClient
             ToolStripMenuItem[] menuItemGroups = new ToolStripMenuItem[groups.Count];
 
             int cnt = 0;
-            foreach (Database.GroupDetails gd in groups)
+            foreach (Model_GroupDetails gd in groups)
             {
                 //if (gd.ServerCount == 0) { continue; }
 
