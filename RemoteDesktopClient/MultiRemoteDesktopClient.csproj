@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MultiRemoteDesktopClient</RootNamespace>
     <AssemblyName>MultiRemoteDesktopClient</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ApplicationIcon>ICO\mstscax.dll_I345e_0409.ico</ApplicationIcon>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -35,6 +35,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -52,6 +54,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>5A4C48B612B3A7D3DDF3A302ADEC0580466DFDE3</ManifestCertificateThumbprint>
@@ -66,7 +69,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MagicLibrary, Version=1.7.0.0, Culture=neutral, PublicKeyToken=3a6eb82f876a49bc" />
+    <Reference Include="MagicLibrary, Version=1.7.0.0, Culture=neutral, PublicKeyToken=3a6eb82f876a49bc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\MagicLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MSTSCLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -116,9 +122,7 @@
     <Compile Include="Controls\ListViewControlHooks.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\TabStrip.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\TabStrip.cs" />
     <Compile Include="Controls\TreeListViewControlHooks.cs">
     </Compile>
     <Compile Include="Forms\ExportWindow.cs">
@@ -275,7 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Content Include="App.Data\ApplicationDatas.s3db">
+    <Content Include="AppData\servers.s3db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="ICO\ehSSO.dll_I00dc_0409_16.ico" />
@@ -316,9 +320,6 @@
     <None Include="ICO\pop_out_16.ico" />
     <None Include="ICO\rename_16.png" />
     <None Include="ICO\mstscax.dll_I345e_0409_16_greyscale.png" />
-    <Content Include="MagicLibrary.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="MultiRemoteDesktopClient.htm" />
     <Content Include="suggestions.txt" />
     <Content Include="XMLInfoFile.xml">
