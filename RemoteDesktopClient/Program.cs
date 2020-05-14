@@ -1,7 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.VisualBasic.ApplicationServices;
+using System;
+using System.Windows.Forms;
 
 namespace MultiRemoteDesktopClient
 {
@@ -15,6 +17,15 @@ namespace MultiRemoteDesktopClient
         {
             Application.SetCompatibleTextRenderingDefault(false);
             Application.EnableVisualStyles();
+
+            AppCenter.Start("8e9dbe40-0b00-46ee-8a37-738dcb1a9e4d",
+                   typeof(Analytics), typeof(Crashes));
+
+#if DEBUG
+            Microsoft.AppCenter.Analytics.Analytics.TrackEvent("Starting in DEBUG");
+#else
+            Microsoft.AppCenter.Analytics.Analytics.TrackEvent("Starting in RELEASE");
+#endif
 
             SingleInstanceController controler = new SingleInstanceController();
             controler.Run(Environment.GetCommandLineArgs());
