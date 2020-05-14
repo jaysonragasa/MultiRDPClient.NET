@@ -2,192 +2,54 @@
 {
     public class Model_ServerDetails
     {
-        string _uid = string.Empty;
-        string _serverName = string.Empty;
-        string _server = string.Empty;
-        string _domain = string.Empty;
-        int _port = 0;
-        string _username = string.Empty;
         string _password = string.Empty;
-        string _description = string.Empty;
 
-        int _colorDepth = 0;
-        int _desktopWidth = 0;
-        int _desktopHeight = 0;
-        bool _fullScreen = false;
+        public string UID { get; set; } = string.Empty;
 
-        int _groupID = 0;
+        public string ServerName { get; set; } = string.Empty;
 
-        public Model_ServerDetails()
-        {
-        }
+        public string Server { get; set; } = string.Empty;
 
-        public string UID
-        {
-            set
-            {
-                this._uid = value;
-            }
-            get
-            {
-                return this._uid;
-            }
-        }
+        public string Domain { get; set; } = string.Empty;
 
-        public string ServerName
-        {
-            set
-            {
-                this._serverName = value;
-            }
-            get
-            {
-                return this._serverName;
-            }
-        }
+        public int Port { get; set; } = 0;
 
-        public string Server
-        {
-            set
-            {
-                this._server = value;
-            }
-            get
-            {
-                return this._server;
-            }
-        }
-
-        public string Domain
-        {
-            set
-            {
-                this._domain = value;
-            }
-            get
-            {
-                return this._domain;
-            }
-        }
-
-        public int Port
-        {
-            set
-            {
-                this._port = value;
-            }
-            get
-            {
-                return this._port;
-            }
-        }
-
-        public string Username
-        {
-            set
-            {
-                this._username = value;
-            }
-            get
-            {
-                return this._username;
-            }
-        }
+        public string Username { get; set; } = string.Empty;
 
         public string Password
         {
+            get
+            {
+                //if (this._password != string.Empty)
+                //{
+                //    this._password = RijndaelSettings.Decrypt(this._password);
+                //}
+
+                return this._password;
+            }
             set
             {
                 string val = value;
 
-                if (val != string.Empty)
-                {
-                    //val = RijndaelSettings.Encrypt(val);
-                }
+                //if (val != string.Empty)
+                //{
+                //    val = RijndaelSettings.Encrypt(val);
+                //}
 
                 this._password = val;
             }
-            get
-            {
-                if (this._password != string.Empty)
-                {
-                    //this._password = RijndaelSettings.Decrypt(this._password);
-                }
-
-                return this._password;
-            }
         }
 
-        public string Description
-        {
-            set
-            {
-                this._description = value;
-            }
-            get
-            {
-                return this._description;
-            }
-        }
+        public string Description { get; set; } = string.Empty;
 
-        public int ColorDepth
-        {
-            set
-            {
-                this._colorDepth = value;
-            }
-            get
-            {
-                return this._colorDepth;
-            }
-        }
+        public int ColorDepth { get; set; } = 0;
 
-        public int DesktopWidth
-        {
-            set
-            {
-                this._desktopWidth = value;
-            }
-            get
-            {
-                return this._desktopWidth;
-            }
-        }
+        public int DesktopWidth { get; set; } = 0;
 
-        public int DesktopHeight
-        {
-            set
-            {
-                this._desktopHeight = value;
-            }
-            get
-            {
-                return this._desktopHeight;
-            }
-        }
+        public int DesktopHeight { get; set; } = 0;
 
-        public bool Fullscreen
-        {
-            set
-            {
-                this._fullScreen = value;
-            }
-            get
-            {
-                return this._fullScreen;
-            }
-        }
+        public bool Fullscreen { get; set; } = false;
 
-        public int GroupID
-        {
-            set
-            {
-                this._groupID = value;
-            }
-            get
-            {
-                return this._groupID;
-            }
-        }
+        public int GroupID { get; set; } = 0;
     }
 }
