@@ -5,50 +5,41 @@ using System.Data.SQLite;
 
 namespace Database
 {
-    public class Groups : Database
+    public class Groups : SQLiteDataController
     {
-        ArrayList _alGroups = new ArrayList();
-
         public Groups()
         {
         }
 
-        public ArrayList ArrayListGroups
-        {
-            get
-            {
-                return this._alGroups;
-            }
-        }
+        public ArrayList ArrayListGroups { get; set; } = new ArrayList();
 
         public void Read()
         {
             string sql = "SELECT groupid, group_name FROM Groups";
 
-            SQLiteDataReader reader;
-            string result = ExecuteQuery(sql, null, out reader);
+            string result = base.ExecuteQuery(sql, null);
 
-            this._alGroups.Clear();
+            this.ArrayListGroups.Clear();
 
             if (result == string.Empty)
             {
-                while (reader.Read())
+                while (base.Database.Reader.Read())
                 {
                     Model_GroupDetails gd = new Model_GroupDetails();
-                    gd.GroupID = int.Parse(reader["groupid"].ToString());
-                    gd.GroupName = reader["group_name"].ToString();
+                    gd.GroupID = int.Parse(base.Database.Reader["groupid"].ToString());
+                    gd.GroupName = base.Database.Reader["group_name"].ToString();
 
-                    this._alGroups.Add(gd);
+                    this.ArrayListGroups.Add(gd);
                 }
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 System.Diagnostics.Debug.WriteLine(result);
                 throw new Exception(result);
             }
 
-            CloseConnection();
+            base.Database.CloseConnection();
         }
 
         public void Save(bool isNew, Model_GroupDetails group_details)
@@ -70,14 +61,14 @@ namespace Database
                                                new SQLiteParameter("@gname", group_details.GroupName)
                                            };
 
-            string result = ExecuteNonQuery(sql, parameters);
+            string result = base.ExecuteNonQuery(sql, parameters);
 
             if (result == string.Empty)
             {
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 System.Diagnostics.Debug.WriteLine(result);
 
                 if (result.Contains("Abort due to constraint violation"))
@@ -90,7 +81,7 @@ namespace Database
                 }
             }
 
-            CloseConnection();
+            base.Database.CloseConnection();
         }
 
         private void Update(Model_GroupDetails group_details)
@@ -101,14 +92,14 @@ namespace Database
                                                new SQLiteParameter("@gname", group_details.GroupName)
                                            };
 
-            string result = ExecuteNonQuery(sql, parameters);
+            string result = base.ExecuteNonQuery(sql, parameters);
 
             if (result == string.Empty)
             {
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 System.Diagnostics.Debug.WriteLine(result);
 
                 if (result.Contains("Abort due to constraint violation"))
@@ -121,7 +112,7 @@ namespace Database
                 }
             }
 
-            CloseConnection();
+            base.Database.CloseConnection();
         }
 
         public void DeleteByID(int id)
@@ -131,19 +122,19 @@ namespace Database
                                                new SQLiteParameter("@gid", id)
                                            };
 
-            string result = ExecuteNonQuery(sql, parameters);
+            string result = base.ExecuteNonQuery(sql, parameters);
 
             if (result == string.Empty)
             {
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 System.Diagnostics.Debug.WriteLine(result);
                 throw new Exception(result);
             }
 
-            CloseConnection();
+            base.Database.CloseConnection();
         }
 
         public string GetGroupNameByID(int id)
@@ -155,21 +146,23 @@ namespace Database
                                               new SQLiteParameter("@gid", id)
                                           };
 
-            SQLiteDataReader reader;
-            string result = ExecuteQuery(SQL, paramters, out reader);
+            string result = base.ExecuteQuery(SQL, paramters);
 
             if (result == string.Empty)
             {
-                reader.Read();
-                ret = reader["group_name"].ToString();
+                if (base.Database.Reader.HasRows)
+                {
+                    base.Database.Reader.Read();
+                    ret = base.Database.Reader["group_name"].ToString();
+                }
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 throw new Exception(result);
             }
 
-            CloseConnection();
+            base.Database.CloseConnection();
 
             return ret;
         }
@@ -183,24 +176,23 @@ namespace Database
                                               new SQLiteParameter("@gname", name)
                                           };
 
-            SQLiteDataReader reader;
-            string result = ExecuteQuery(SQL, paramters, out reader);
+            string result = base.ExecuteQuery(SQL, paramters);
 
             if (result == string.Empty)
             {
-                if (reader.HasRows)
+                if (base.Database.Reader.HasRows)
                 {
-                    reader.Read();
-                    ret = int.Parse(reader["groupid"].ToString());
+                    base.Database.Reader.Read();
+                    ret = int.Parse(base.Database.Reader["groupid"].ToString());
                 }
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 throw new Exception(result);
             }
 
-            CloseConnection();
+            base.Database.CloseConnection();
 
             return ret;
         }
@@ -209,30 +201,32 @@ namespace Database
         {
             string sql = "select * from viewGroupsWithServerCount";
 
-            SQLiteDataReader reader;
-            string result = ExecuteQuery(sql, null, out reader);
+            string result = base.ExecuteQuery(sql, null);
 
             if (result == string.Empty)
             {
-                this._alGroups.Clear();
-
-                while (reader.Read())
+                if (base.Database.Reader.HasRows)
                 {
-                    Model_GroupDetails gd = new Model_GroupDetails();
-                    gd.GroupID = int.Parse(reader["groupid"].ToString());
-                    gd.GroupName = reader["group_name"].ToString();
-                    gd.ServerCount = int.Parse(reader["ServerCount"].ToString());
+                    this.ArrayListGroups.Clear();
 
-                    this._alGroups.Add(gd);
+                    while (base.Database.Reader.Read())
+                    {
+                        Model_GroupDetails gd = new Model_GroupDetails();
+                        gd.GroupID = int.Parse(base.Database.Reader["groupid"].ToString());
+                        gd.GroupName = base.Database.Reader["group_name"].ToString();
+                        gd.ServerCount = int.Parse(base.Database.Reader["ServerCount"].ToString());
+
+                        this.ArrayListGroups.Add(gd);
+                    }
                 }
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 throw new Exception(result);
             }
 
-            CloseConnection();
+            base.Database.CloseConnection();
         }
     }
 }

@@ -73,8 +73,6 @@ namespace MultiRemoteDesktopClient
             {
                 cb.SelectedIndex = cb.FindStringExact(selected_text);
             }
-
-            dbGroups.CloseConnection();
         }
     }
 }

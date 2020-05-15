@@ -5,119 +5,99 @@ using System.Data.SQLite;
 
 namespace Database
 {
-    public class Database
+    public class SQLiteDataSource
     {
         string _connectionString = string.Empty;
-        string db_name = string.Empty;
+        string _db_name = string.Empty;
 
-        SQLiteConnection _connection = new SQLiteConnection();
-        SQLiteCommand _command = new SQLiteCommand();
+        public SQLiteConnection Connection { get; set; } = new SQLiteConnection();
+        public SQLiteCommand Command { get; set; } = new SQLiteCommand();
+        public SQLiteDataReader Reader { get; set; } = null;
 
-        public Database()
+        static Lazy<SQLiteDataSource> _database = new Lazy<SQLiteDataSource>(() =>
         {
-            db_name = ConfigurationManager.AppSettings["DatbaseFilepath"].ToString();
-            db_name = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, db_name);
+            var db = new SQLiteDataSource();
+            db.Initialize();
 
-            this._connectionString = ConfigurationManager.AppSettings["connection"].ToString();
-            this._connectionString = string.Format(_connectionString, db_name);
+            return db;
+        });
 
-            this._connection.ConnectionString = this._connectionString;
+        public static SQLiteDataSource I => _database.Value;
 
-            //if (!System.IO.File.Exists(db_name))
-            //{
-            //    SQLiteConnection.CreateFile(db_name);
-            //    _connection.Open();
-            //    _connection.Close();
-            //}
+        public void Initialize()
+        {
+            _db_name = ConfigurationManager.AppSettings["DatbaseFilepath"].ToString();
+            _db_name = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, _db_name);
+
+            _connectionString = ConfigurationManager.AppSettings["connection"].ToString();
+            _connectionString = string.Format(_connectionString, _db_name);
+
+            this.Connection.ConnectionString = _connectionString;
         }
 
-        public void Delete(bool all)
+        public void CloseConnection()
         {
-            string dbpath = System.IO.Path.GetDirectoryName(db_name);
-            try
-            {
-                foreach (string f in System.IO.Directory.GetFiles(dbpath))
-                {
-                    if (!all)
-                    {
-                        if (f.ToLower() != this.db_name.ToLower())
-                        {
-                            System.IO.File.Delete(f);
-                        }
-                    }
-                    else
-                    {
-                        System.IO.File.Delete(f);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-            }
+            this.Reader.Close();
+            this.Command.Dispose();
+            this.Connection.Close();
         }
+    }
 
-        public void ResetDatabase()
-        {
-            Delete(true);
+    public class SQLiteDataController
+    {
+        public SQLiteDataSource Database => SQLiteDataSource.I;
 
-            System.Diagnostics.Debug.WriteLine("reseting database");
-            ExecuteNonQuery(DefaultDataAndSchema.sql, null);
-            System.Diagnostics.Debug.WriteLine("done");
-        }
+        //public void Delete(bool all)
+        //{
+        //    string dbpath = System.IO.Path.GetDirectoryName(db_name);
+        //    try
+        //    {
+        //        foreach (string f in System.IO.Directory.GetFiles(dbpath))
+        //        {
+        //            if (!all)
+        //            {
+        //                if (f.ToLower() != this.db_name.ToLower())
+        //                {
+        //                    System.IO.File.Delete(f);
+        //                }
+        //            }
+        //            else
+        //            {
+        //                System.IO.File.Delete(f);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        System.Diagnostics.Debug.WriteLine(ex.Message);
+        //    }
+        //}
 
-        public string ExecuteQuery(string sql_query, SQLiteParameter[] parameters, out SQLiteDataReader reader)
+        //public void ResetDatabase()
+        //{
+        //    Delete(true);
+
+        //    System.Diagnostics.Debug.WriteLine("reseting database");
+        //    ExecuteNonQuery(DefaultDataAndSchema.sql, null);
+        //    System.Diagnostics.Debug.WriteLine("done");
+        //}
+
+        public string ExecuteQuery(string sql_query, SQLiteParameter[] parameters)
         {
             string res = string.Empty;
 
-            reader = null;
+            this.Database.Connection.Open();
 
-            //using(SQLiteConnection conn = new SQLiteConnection(this._connectionString))
-            //{
-            //    conn.Open();
-            //    using (SQLiteCommand comm = conn.CreateCommand())
-            //    {
-            //        comm.CommandText = sql_query;
-
-            //        if(parameters != null)
-            //        {
-            //            comm.Parameters.AddRange(parameters);
-            //        }
-
-            //        try
-            //        {
-            //            this._command = comm;
-
-            //            reader = this._command.ExecuteReader(CommandBehavior.CloseConnection);
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            res = CreateExceptionMessage(ex);
-            //        }
-            //    }
-            //}
-
-            reader = null;
-
-            //if (_connection.State == ConnectionState.Open)
-            //{
-            //    CloseConnection();
-            //}
-
-            _connection = new SQLiteConnection(this._connectionString);
-            _connection.Open();
-            _command = _connection.CreateCommand();
-            _command.CommandText = sql_query;
+            this.Database.Command = this.Database.Connection.CreateCommand();
+            this.Database.Command.CommandText = sql_query;
+            this.Database.Command.Parameters.Clear();
 
             if (parameters != null)
-            {
-                _command.Parameters.Clear();
-                _command.Parameters.AddRange(parameters);
-            }
+                this.Database.Command.Parameters.AddRange(parameters);
 
             try
             {
-                reader = _command.ExecuteReader(CommandBehavior.CloseConnection);
+                this.Database.Reader = this.Database.Command.ExecuteReader(CommandBehavior.CloseConnection);
             }
             catch (Exception ex)
             {
@@ -131,47 +111,18 @@ namespace Database
         {
             string res = string.Empty;
 
-            //using (SQLiteConnection conn = new SQLiteConnection(this._connectionString))
-            //{
-            //    conn.Open();
-            //    using (SQLiteCommand comm = conn.CreateCommand())
-            //    {
-            //        comm.CommandText = sql_query;
+            this.Database.Connection.Open();
 
-            //        if (parameters != null)
-            //        {
-            //            comm.Parameters.AddRange(parameters);
-            //        }
-
-            //        try
-            //        {
-            //            comm.ExecuteNonQuery();
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            res = CreateExceptionMessage(ex);
-            //        }
-            //    }
-            //}
-
-            //if (_connection.State == ConnectionState.Open)
-            //{
-            //    CloseConnection();
-            //}
-
-            _connection = new SQLiteConnection(this._connectionString);
-            _connection.Open();
-            _command = _connection.CreateCommand();
-            _command.CommandText = sql_query;
+            this.Database.Command = this.Database.Connection.CreateCommand();
+            this.Database.Command.CommandText = sql_query;
+            this.Database.Command.Parameters.Clear();
 
             if (parameters != null)
-            {
-                _command.Parameters.AddRange(parameters);
-            }
+                this.Database.Command.Parameters.AddRange(parameters);
 
             try
             {
-                _command.ExecuteNonQuery();
+                this.Database.Command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -179,21 +130,9 @@ namespace Database
                 res = CreateExceptionMessage(ex);
             }
 
-            _connection.Close();
+            //this.Database.CloseConnection();
 
             return res;
-        }
-
-        public void CloseConnection()
-        {
-            _command.Dispose();
-
-            if (_connection != null)
-            {
-                _connection.Close();
-                _connection.Dispose();
-                _connection = null;
-            }
         }
 
         private string CreateExceptionMessage(Exception ex)

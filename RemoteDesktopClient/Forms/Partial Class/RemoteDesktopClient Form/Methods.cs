@@ -243,8 +243,6 @@ namespace MultiRemoteDesktopClient
         {
             DialogResult dr;
 
-            Database.Database db = new Database.Database();
-
             if (!GlobalHelper.appSettings.IsAppConfigExists())
             {
                 dr = MessageBox.Show(
@@ -259,12 +257,12 @@ namespace MultiRemoteDesktopClient
                 }
 
                 // create our new database schema and default datas
-                db.ResetDatabase();
+                //db.ResetDatabase();
                 
             }
 
-            db.Delete(false);
-            db = null;
+            //db.Delete(false);
+            //db = null;
         }
 
         public bool AskPassword(object sender)

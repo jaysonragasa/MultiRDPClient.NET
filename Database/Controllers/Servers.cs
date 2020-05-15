@@ -5,21 +5,13 @@ using System.Data.SQLite;
 
 namespace Database
 {
-    public class Servers : Database
+    public class Servers : SQLiteDataController
     {
-        ArrayList _alServes = new ArrayList();
-
         public Servers()
         {
         }
 
-        public ArrayList ArrayListServers
-        {
-            get
-            {
-                return this._alServes;
-            }
-        }
+        public ArrayList ArrayListServers { get; set; } = new ArrayList();
 
         public void Read()
         {
@@ -30,46 +22,53 @@ namespace Database
 
             //}
 
-            SQLiteDataReader reader;
-            string result = ExecuteQuery(sql, null, out reader);
+            string result = base.ExecuteQuery(sql, null);
 
-            this._alServes.Clear();
+            this.ArrayListServers.Clear();
 
             if (result == string.Empty)
             {
-                while (reader.Read())
+                if (base.Database.Reader.HasRows)
                 {
-                    Model_ServerDetails sd = new Model_ServerDetails();
-                    sd.UID = reader["uid"].ToString();
-                    sd.GroupID = int.Parse(reader["groupid"].ToString());
-                    sd.ServerName = reader["servername"].ToString();
-                    sd.Server = reader["server"].ToString();
-                    sd.Domain = reader["domain"].ToString();
-                    sd.Port = int.Parse(reader["port"].ToString());
-                    sd.Username = reader["username"].ToString();
+                    while (base.Database.Reader.Read())
+                    {
+                        Model_ServerDetails sd = new Model_ServerDetails()
+                        {
+                            UID = base.Database.Reader["uid"].ToString(),
+                            GroupID = int.Parse(base.Database.Reader["groupid"].ToString()),
+                            ServerName = base.Database.Reader["servername"].ToString(),
+                            Server = base.Database.Reader["server"].ToString(),
+                            Domain = base.Database.Reader["domain"].ToString(),
+                            Port = int.Parse(base.Database.Reader["port"].ToString()),
+                            Username = base.Database.Reader["username"].ToString(),
 
-                    string pword = reader["password"].ToString();
-                    if (pword != string.Empty) { pword = RijndaelSettings.Decrypt(pword); }
+                            Password = (new Func<string>(() =>
+                            {
+                                string pword = base.Database.Reader["password"].ToString();
+                                if (pword != string.Empty) { pword = RijndaelSettings.Decrypt(pword); }
 
-                    sd.Password = pword;
+                                return pword;
+                            }).Invoke()),
 
-                    sd.Description = reader["description"].ToString();
-                    sd.ColorDepth = int.Parse(reader["colordepth"].ToString());
-                    sd.DesktopWidth = int.Parse(reader["desktopwidth"].ToString());
-                    sd.DesktopHeight = int.Parse(reader["desktopheight"].ToString());
-                    sd.Fullscreen = int.Parse(reader["fullscreen"].ToString()) == 1 ? true : false;
+                            Description = base.Database.Reader["description"].ToString(),
+                            ColorDepth = int.Parse(base.Database.Reader["colordepth"].ToString()),
+                            DesktopWidth = int.Parse(base.Database.Reader["desktopwidth"].ToString()),
+                            DesktopHeight = int.Parse(base.Database.Reader["desktopheight"].ToString()),
+                            Fullscreen = int.Parse(base.Database.Reader["fullscreen"].ToString()) == 1 ? true : false
+                        };
 
-                    this._alServes.Add(sd);
+                        this.ArrayListServers.Add(sd);
+                    }
                 }
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 System.Diagnostics.Debug.WriteLine(result);
                 throw new Exception(result);
             }
 
-            CloseConnection();
+            base.Database.CloseConnection();
         }
 
         public void Save(bool isNew, Model_ServerDetails server_details)
@@ -111,14 +110,14 @@ namespace Database
                                            };
             #endregion
 
-            string result = ExecuteNonQuery(sql, parameters);
+            string result = base.ExecuteNonQuery(sql, parameters);
 
             if (result == string.Empty)
             {
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 System.Diagnostics.Debug.WriteLine(result);
 
                 if (result.Contains("Abort due to constraint violation"))
@@ -131,7 +130,7 @@ namespace Database
                 }
             }
 
-            CloseConnection();
+            base.Database.CloseConnection();
         }
 
         private void Update(Model_ServerDetails server_details)
@@ -178,14 +177,14 @@ WHERE
                                            };
             #endregion
 
-            string result = ExecuteNonQuery(sql, parameters);
+            string result = base.ExecuteNonQuery(sql, parameters);
 
             if (result == string.Empty)
             {
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 System.Diagnostics.Debug.WriteLine(result);
 
                 if (result.Contains("Abort due to constraint violation"))
@@ -198,7 +197,7 @@ WHERE
                 }
             }
 
-            CloseConnection();
+            base.Database.CloseConnection();
         }
 
         public void UpdateGroupIdByID(string id, int newGroupID)
@@ -209,7 +208,7 @@ WHERE
                                                new SQLiteParameter("@uid", id)
                                            };
 
-            string result = ExecuteNonQuery(sql, parameters);
+            string result = base.ExecuteNonQuery(sql, parameters);
 
             if (result == string.Empty)
             {
@@ -217,11 +216,11 @@ WHERE
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 throw new Exception(result);
             }
 
-            CloseConnection();
+            base.Database.CloseConnection();
         }
 
         public void DeleteByID(string id)
@@ -232,7 +231,7 @@ WHERE
                                                new SQLiteParameter("@uid", id)
                                            };
 
-            string result = ExecuteNonQuery(sql, parameters);
+            string result = base.ExecuteNonQuery(sql, parameters);
 
             if (result == string.Empty)
             {
@@ -240,10 +239,12 @@ WHERE
             }
             else
             {
-                CloseConnection();
+                base.Database.CloseConnection();
                 System.Diagnostics.Debug.WriteLine(result);
                 throw new Exception(result);
             }
+
+            base.Database.CloseConnection();
         }
     }
 }

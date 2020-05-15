@@ -175,12 +175,14 @@ namespace MultiRemoteDesktopClient
                 return;
             }
 
-            int groupId = 0;
+            int groupId = GlobalHelper.dbGroups.GetIDByGroupName(ddGroup.Text);
 
-            groupId = GlobalHelper.dbGroups.GetIDByGroupName(ddGroup.Text);
-            GlobalHelper.dbGroups.CloseConnection();
+            // now force close.. I do not understand why I have to
+            // do this twice.
+            //GlobalHelper.dbGroups.CloseConnection();
+            //GlobalHelper.dbGroups.Database.CloseConnection();
 
-            if(groupId == 0)
+            if (groupId == 0)
             {
                 MessageBox.Show("Something went wrong while saving to database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
