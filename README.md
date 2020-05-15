@@ -1,3 +1,8 @@
+# Release
+Binaries are available in AppCenter  
+[https://install.appcenter.ms/users/jaysondragasa-outlook.com/apps/multirdpclient.net/distribution_groups/public](https://install.appcenter.ms/users/jaysondragasa-outlook.com/apps/multirdpclient.net/distribution_groups/public)
+  
+  
 # Contents
 [Introduction](#multi-rdp-client-net) . [Background](#background) . [Screen Shots](#screenshots) . [Features](#features) . [Codes](#code-snippets) . [Release History](#release-history) 
 
