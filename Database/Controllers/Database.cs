@@ -23,12 +23,12 @@ namespace Database
 
             this._connection.ConnectionString = this._connectionString;
 
-            if (!System.IO.File.Exists(db_name))
-            {
-                SQLiteConnection.CreateFile(db_name);
-                _connection.Open();
-                _connection.Close();
-            }
+            //if (!System.IO.File.Exists(db_name))
+            //{
+            //    SQLiteConnection.CreateFile(db_name);
+            //    _connection.Open();
+            //    _connection.Close();
+            //}
         }
 
         public void Delete(bool all)
@@ -70,13 +70,41 @@ namespace Database
         {
             string res = string.Empty;
 
-            if (_connection.State == ConnectionState.Open)
-            {
-                CloseConnection();
-            }
+            reader = null;
+
+            //using(SQLiteConnection conn = new SQLiteConnection(this._connectionString))
+            //{
+            //    conn.Open();
+            //    using (SQLiteCommand comm = conn.CreateCommand())
+            //    {
+            //        comm.CommandText = sql_query;
+
+            //        if(parameters != null)
+            //        {
+            //            comm.Parameters.AddRange(parameters);
+            //        }
+
+            //        try
+            //        {
+            //            this._command = comm;
+
+            //            reader = this._command.ExecuteReader(CommandBehavior.CloseConnection);
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            res = CreateExceptionMessage(ex);
+            //        }
+            //    }
+            //}
 
             reader = null;
 
+            //if (_connection.State == ConnectionState.Open)
+            //{
+            //    CloseConnection();
+            //}
+
+            _connection = new SQLiteConnection(this._connectionString);
             _connection.Open();
             _command = _connection.CreateCommand();
             _command.CommandText = sql_query;
@@ -103,11 +131,35 @@ namespace Database
         {
             string res = string.Empty;
 
-            if (_connection.State == ConnectionState.Open)
-            {
-                CloseConnection();
-            }
+            //using (SQLiteConnection conn = new SQLiteConnection(this._connectionString))
+            //{
+            //    conn.Open();
+            //    using (SQLiteCommand comm = conn.CreateCommand())
+            //    {
+            //        comm.CommandText = sql_query;
 
+            //        if (parameters != null)
+            //        {
+            //            comm.Parameters.AddRange(parameters);
+            //        }
+
+            //        try
+            //        {
+            //            comm.ExecuteNonQuery();
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            res = CreateExceptionMessage(ex);
+            //        }
+            //    }
+            //}
+
+            //if (_connection.State == ConnectionState.Open)
+            //{
+            //    CloseConnection();
+            //}
+
+            _connection = new SQLiteConnection(this._connectionString);
             _connection.Open();
             _command = _connection.CreateCommand();
             _command.CommandText = sql_query;
@@ -126,7 +178,7 @@ namespace Database
                 System.Diagnostics.Debug.WriteLine("ERROR! " + ex.Message + "\r\n" + ex.StackTrace);
                 res = CreateExceptionMessage(ex);
             }
-            
+
             _connection.Close();
 
             return res;
@@ -134,7 +186,14 @@ namespace Database
 
         public void CloseConnection()
         {
-            _connection.Close();
+            _command.Dispose();
+
+            if (_connection != null)
+            {
+                _connection.Close();
+                _connection.Dispose();
+                _connection = null;
+            }
         }
 
         private string CreateExceptionMessage(Exception ex)

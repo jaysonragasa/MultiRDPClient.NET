@@ -320,7 +320,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <Content Include="AppData\servers.s3db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="ICO\ehSSO.dll_I00dc_0409_16.ico" />
     <None Include="ICO\fit_16.ico" />

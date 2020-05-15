@@ -26,44 +26,44 @@ namespace MultiRemoteDesktopClient
         {
             this.Items.Clear();
 
-            GlobalHelper.dbGroups.GetGroupsWithServerCount();
-            ArrayList groups = GlobalHelper.dbGroups.ArrayListGroups;
-            ArrayList servers = GlobalHelper.dbServers.ArrayListServers;
+            //GlobalHelper.dbGroups.GetGroupsWithServerCount();
+            //ArrayList groups = GlobalHelper.dbGroups.ArrayListGroups;
+            //ArrayList servers = GlobalHelper.dbServers.ArrayListServers;
 
-            ToolStripMenuItem[] menuItemGroups = new ToolStripMenuItem[groups.Count];
+            //ToolStripMenuItem[] menuItemGroups = new ToolStripMenuItem[groups.Count];
 
-            int cnt = 0;
-            foreach (Model_GroupDetails gd in groups)
-            {
-                //if (gd.ServerCount == 0) { continue; }
+            //int cnt = 0;
+            //foreach (Model_GroupDetails gd in groups)
+            //{
+            //    //if (gd.ServerCount == 0) { continue; }
 
-                ToolStripMenuItem[] menuItemServers = new ToolStripMenuItem[gd.ServerCount];
-                int scnt = 0;
-                foreach (Model_ServerDetails sd in servers)
-                {
-                    if (gd.GroupID == sd.GroupID)
-                    {
-                        System.Diagnostics.Debug.WriteLine(sd.ServerName);
-                        menuItemServers[scnt] = new ToolStripMenuItem(sd.ServerName, Properties.Resources.mstscax_dll_I345e_0409_16, new EventHandler(Servers_Clicked));
-                        menuItemServers[scnt].Tag = sd;
-                        menuItemServers[scnt].Name = "menuItem" + sd.ServerName.Replace(" ", "_");
-                        scnt++;
-                    }
-                }
+            //    ToolStripMenuItem[] menuItemServers = new ToolStripMenuItem[gd.ServerCount];
+            //    int scnt = 0;
+            //    foreach (Model_ServerDetails sd in servers)
+            //    {
+            //        if (gd.GroupID == sd.GroupID)
+            //        {
+            //            System.Diagnostics.Debug.WriteLine(sd.ServerName);
+            //            menuItemServers[scnt] = new ToolStripMenuItem(sd.ServerName, Properties.Resources.mstscax_dll_I345e_0409_16, new EventHandler(Servers_Clicked));
+            //            menuItemServers[scnt].Tag = sd;
+            //            menuItemServers[scnt].Name = "menuItem" + sd.ServerName.Replace(" ", "_");
+            //            scnt++;
+            //        }
+            //    }
 
-                menuItemGroups[cnt] = new ToolStripMenuItem(gd.GroupName, Properties.Resources.manage_groups_16, menuItemServers);
-                cnt++;
-            }
+            //    menuItemGroups[cnt] = new ToolStripMenuItem(gd.GroupName, Properties.Resources.manage_groups_16, menuItemServers);
+            //    cnt++;
+            //}
             
-            this.Items.AddRange(new ToolStripItem[] {
-                new ToolStripMenuItem("Servers", null, menuItemGroups),
-                new ToolStripMenuItem("Disconnect All", Properties.Resources.disconnect_all_16, new EventHandler(DisconnectAll_Clicked)),
-                new ToolStripSeparator(),
-                new ToolStripMenuItem("Configuration", Properties.Resources.filemgmt_dll_I00ec_0409_16, new EventHandler(Configuration_Clicked)),
-                new ToolStripSeparator(),
-                new ToolStripMenuItem("Lock", Properties.Resources.LogOff_16, new EventHandler(Lock_Clicked)),
-                new ToolStripMenuItem("Exit", Properties.Resources.Shutdown_16, new EventHandler(Exit_Clicked)),
-            });
+            //this.Items.AddRange(new ToolStripItem[] {
+            //    new ToolStripMenuItem("Servers", null, menuItemGroups),
+            //    new ToolStripMenuItem("Disconnect All", Properties.Resources.disconnect_all_16, new EventHandler(DisconnectAll_Clicked)),
+            //    new ToolStripSeparator(),
+            //    new ToolStripMenuItem("Configuration", Properties.Resources.filemgmt_dll_I00ec_0409_16, new EventHandler(Configuration_Clicked)),
+            //    new ToolStripSeparator(),
+            //    new ToolStripMenuItem("Lock", Properties.Resources.LogOff_16, new EventHandler(Lock_Clicked)),
+            //    new ToolStripMenuItem("Exit", Properties.Resources.Shutdown_16, new EventHandler(Exit_Clicked)),
+            //});
         }
 
         public void UpdateMenuItems()

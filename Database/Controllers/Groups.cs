@@ -188,8 +188,11 @@ namespace Database
 
             if (result == string.Empty)
             {
-                reader.Read();
-                ret = int.Parse(reader["groupid"].ToString());
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    ret = int.Parse(reader["groupid"].ToString());
+                }
             }
             else
             {

@@ -1,6 +1,8 @@
 ﻿using Database.Models;
 using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using TextboxRequiredWrappers;
 
@@ -173,19 +175,32 @@ namespace MultiRemoteDesktopClient
                 return;
             }
 
-            Model_ServerDetails sd = new Model_ServerDetails();
-            sd.GroupID = GlobalHelper.dbGroups.GetIDByGroupName(ddGroup.Text);
-            sd.ServerName = txServername.Text;
-            sd.Server = txComputer.Text;
-            sd.Domain = txDomain.Text;
-            sd.Port = int.Parse(txPort.Text == string.Empty ? "0" : txPort.Text);
-            sd.Username = txUsername.Text;
-            sd.Password = txPassword.Text;
-            sd.Description = txDescription.Text;
-            sd.ColorDepth = (int)lblColorDepth.Tag;
-            sd.DesktopWidth = int.Parse(txWidth.Text);
-            sd.DesktopHeight = int.Parse(txHeight.Text);
-            sd.Fullscreen = cbFullscreen.Checked;
+            int groupId = 0;
+
+            groupId = GlobalHelper.dbGroups.GetIDByGroupName(ddGroup.Text);
+            GlobalHelper.dbGroups.CloseConnection();
+
+            if(groupId == 0)
+            {
+                MessageBox.Show("Something went wrong while saving to database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Model_ServerDetails sd = new Model_ServerDetails()
+            {
+                GroupID = groupId,
+                ServerName = txServername.Text,
+                Server = txComputer.Text,
+                Domain = txDomain.Text,
+                Port = int.Parse(txPort.Text == string.Empty ? "0" : txPort.Text),
+                Username = txUsername.Text,
+                Password = txPassword.Text,
+                Description = txDescription.Text,
+                ColorDepth = (int)lblColorDepth.Tag,
+                DesktopWidth = int.Parse(txWidth.Text),
+                DesktopHeight = int.Parse(txHeight.Text),
+                Fullscreen = cbFullscreen.Checked
+            };
             
             try
             {

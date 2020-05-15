@@ -33,6 +33,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txComputer = new System.Windows.Forms.ComboBox();
             this.ddGroup = new System.Windows.Forms.ComboBox();
             this.txDescription = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,7 +72,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txComputer = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -108,9 +108,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txComputer);
             this.groupBox1.Controls.Add(this.ddGroup);
             this.groupBox1.Controls.Add(this.txDescription);
@@ -135,8 +135,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Logon Settings";
             // 
+            // txComputer
+            // 
+            this.txComputer.FormattingEnabled = true;
+            this.txComputer.Location = new System.Drawing.Point(160, 49);
+            this.txComputer.Name = "txComputer";
+            this.txComputer.Size = new System.Drawing.Size(109, 21);
+            this.txComputer.TabIndex = 7;
+            // 
             // ddGroup
             // 
+            this.ddGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddGroup.FormattingEnabled = true;
             this.ddGroup.Location = new System.Drawing.Point(160, 236);
             this.ddGroup.Name = "ddGroup";
@@ -428,7 +437,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(65, 89);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(182, 13);
+            this.label8.Size = new System.Drawing.Size(181, 13);
             this.label8.TabIndex = 2;
             this.label8.Text = "You can enter a custom resolution";
             // 
@@ -487,14 +496,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 70);
             this.panel1.TabIndex = 0;
-            // 
-            // txComputer
-            // 
-            this.txComputer.FormattingEnabled = true;
-            this.txComputer.Location = new System.Drawing.Point(160, 49);
-            this.txComputer.Name = "txComputer";
-            this.txComputer.Size = new System.Drawing.Size(109, 21);
-            this.txComputer.TabIndex = 7;
             // 
             // ServerSettingsWindow
             // 
